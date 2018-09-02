@@ -6,3 +6,4 @@ class Employee {
 
 let check = new Employee();
 console.log(check.doWork());
+
