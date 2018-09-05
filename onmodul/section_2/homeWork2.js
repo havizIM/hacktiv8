@@ -85,8 +85,11 @@ const mapData = (filteredData) => {
 }
 
 let filteredData = filterData(videoData);
+console.log(filterData(videoData));
 console.log(mapData(filteredData));
 console.log(`Jumlah film terbaru adalah ${filteredData.length}`);
+
+
 
 
 

@@ -1,34 +1,61 @@
 class Shape { 
-    constructor(props){
-        this._id = props.id;
-        this._x = props.x;
-        this._y = props.y;
+    constructor({ id, x, y }){
+        this._id = id;
+        this._x = x;
+        this._y = y;
     }
-    getInfo(){
-        return `There is an Shape with id : ${this._id}, x : ${this._x} and y : ${this._y}`;
+    getX() {
+        return this._x;
+    }
+    getY() {
+        return this._y;
+    }
+    move({ x, y }){
+        this._x = x;
+        this._y = y;
+
+        return `newX = ${this._x} and newY = ${this._y}`;
     }
 }
 
 class Rectangle extends Shape {
-    constructor(props){
-        super(props);
-        this._width = props.width;
-        this._height = props.height;
+    constructor({ id, x, y, width, height }){
+        super({id, x, y});
+        this._width = width;
+        this._height = height;
     }
     calcRectangle(){
         return `Luas persegi panjang adalah ${this._width * this._height}cm`;
     }
 }
 
-class Round extends Shape {
-    constructor(props){
-        super(props);
-        this._radius = props.radius;
+class Circle extends Shape {
+    constructor({ id, x, y, radius}){
+        super({ id, x, y });
+        this._radius = radius;
     } 
 }
 
-const bidang = new Shape({id: 1, x: 20, y: 80});
-const persegiPanjang = new Rectangle({id: 1, x: 20, y: 80, width: 8, height: 8});
+class Eye extends Circle {
+    constructor({id, x, y, radius, color}){
+        super({id, x, y, radius});
+        this._color = color;
+    }
+    roll(rollAmount){
+        let x1 = rollAmount + this._x;
+        let y1 = this._y;
+       super.move({x: x1, y: y1});
+    }
+}
 
-console.log(persegiPanjang.getInfo());
-console.log(persegiPanjang.calcRectangle());
+
+const rectangle = new Rectangle({id: 1, x: 30, y: 80, width: 20, height: 40});
+console.log('newX from Rectangle: ', rectangle.getX());
+
+const circle = new Circle({id: 2, x: 2, y: 10, radius: 20 });
+console.log('newX from Circle: ', circle.getX());
+
+const eye = new Eye({id: 2, x: 2, y: 10, radius: 20, color: 'blue' });
+eye.roll(20);
+console.log(eye.getX());
+
