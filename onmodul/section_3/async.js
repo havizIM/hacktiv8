@@ -14,18 +14,18 @@ const proms = (count) => {
     })
 }
 
-// let countTambah = () => {   
-//     proms(10)
-//     .then((result) => {
-//         return proms(result);
-//     })
-//     .then((result1) => {
-//         console.log(result1);
-//     })
-//     .catch((error) => {
-//         console.log(error);
-//     });
-//     console.log('mulai');
-// }
+let countTambah = () => {   
+    proms(10)
+    .then((result) => {
+        return proms(result);
+    })
+    .then((result1) => {
+        console.log(result1);
+    })
+    .catch((error) => {
+        console.log(error);
+    });
+    console.log('mulai');
+}
 
 countTambah();
