@@ -1,3 +1,6 @@
+const arrayOfWords = ['cucumber', 'tomatos', 'avocado'];
+const complicatedArray = ['cucumber', 44, true];
+
 const makeAllCaps = (arrays) => {
     return new Promise((resolve, reject) => {
         resolve(
@@ -15,8 +18,7 @@ const sortWords = (arrays) => {
     });
 }
 
-const arrayOfWords = ['cucumber', 'tomatos', 'avocado'];
-const complicatedArray = ['cucumber', 44, true];
+
 
 makeAllCaps(arrayOfWords)
 .then(sortWords)
